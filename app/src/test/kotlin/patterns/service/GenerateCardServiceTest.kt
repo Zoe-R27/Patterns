@@ -1,3 +1,5 @@
+package patterns.service
+
 import io.kotest.core.spec.style.StringSpec
 import io.kotest.matchers.collections.shouldHaveSize
 import io.kotest.matchers.shouldBe
@@ -9,9 +11,6 @@ import io.mockk.verify
 import patterns.constants.CARD_PREFIX
 import patterns.constants.CardType
 import patterns.constants.UPDATED_BY
-import patterns.service.CsvCardRepositoryAdapter
-import patterns.service.CsvSequenceRepositoryAdapter
-import patterns.service.GenerateCardService
 import patterns.util.TestUtil
 import java.time.LocalDateTime
 

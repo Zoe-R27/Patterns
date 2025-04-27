@@ -1,10 +1,51 @@
-# PatternsFinal
+# Patterns
 
-Zoe Rudd
-SENG5802 Final
-Spring 2025
+#### Zoe Rudd - Software Engineer at Target
+#### SENG5802 Final
+#### Spring 2025
 
 ## About
+Within this project, we are generating giftcards and saving them to, in this case a CSV file. The giftcards are generated
+by retrieving a saved sequence from another csv file that keeps track of the lastest card number generated.
+
+This project also showcases a few of the common design patterns including:
+ - Singleton
+ - Adapter
+ - Prototype
+
+## How To Set Up
+This project runs on Java 17 and Gradle 8.11. It is best run in IntelliJ since it is written in Kotlin, a common
+language in Enterprise systems at this time. 
+
+To run in IntelliJ: 
+1. Ensure you have Java 17
+2. Download the community version from their [site](https://www.jetbrains.com/idea/).
+3. Fork this repository and download to where you want it
+4. In IntelliJ go to File -> New -> Project from Existing Sources -> Chose Forked Repository
+5. Either let the gradle load in or run `./gradlew build`
+
+### Structure
+ - Code in found in the `app/src/main/kotlin package`
+   - The bulk of the logic is found in `app/src/main/kotlin/patterns/service`
+ - Tests are found in `app/src/test/kotlin package`
+
+There are various comment blocks around the project file that helps explain what the program does and how some of the patterns
+are set up.
+
+
+### Running the Project
+You can run the program by going to `app/src/main/kotlin/App.kt` and running `main()`. 
+This can be done by either hitting the green arrow button next on the left or right-clicking on `main` and choosing `Run 'App.kt'`
+
+This will cause prompts to appear to on the terminal asking for:
+ - The number of cards you want to generate
+ - The amount of money you want the cards to be worth
+ - The type of card you want generated
+   - If you chose to generate a Prepaid card, it will also ask for an expiration date
+
+To run the tests, you can right-click on the package(directory) and chose `Run Tests in...`
+
+## Description of Patterns
 Why we have problem
 How we started
 Why we chose then instead of something else
@@ -12,6 +53,8 @@ Justify why using the adapter
     Usually would go to the database with these specific methods but for demo and not wanting to do containerization
     I sent have the adapter to go to the csv file so we can view it
 
+
+## More on Gradle 
 
 This project uses [Gradle](https://gradle.org/).
 To build and run the application, use the *Gradle* tool window by clicking the Gradle icon in the right-hand toolbar,

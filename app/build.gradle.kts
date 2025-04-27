@@ -22,3 +22,7 @@ application {
     // Define the Fully Qualified Name for the application main class
     mainClass.set("patterns.AppKt")
 }
+
+tasks.withType<Test>().configureEach {
+    useJUnitPlatform()
+}
