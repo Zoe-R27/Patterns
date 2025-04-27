@@ -1,0 +1,4 @@
+app:
+  writeToCsvFile: true
+  csvGiftCardFilePath: data/GiftCards.csv
+  csvSequenceFilePath: data/Sequence.csv
