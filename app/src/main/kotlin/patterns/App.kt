@@ -5,7 +5,9 @@ import patterns.service.GenerateCardService
 import java.io.File
 import java.nio.file.Paths
 import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 import java.util.Scanner
+import javax.swing.text.DateFormatter
 
 fun main() {
     // Print current working directory
@@ -35,13 +37,17 @@ fun main() {
     val cardTypeIndex = readIntInput(scanner, 1, CardType.entries.size) - 1
     val selectedCardType = CardType.entries[cardTypeIndex]
 
+    var expirationDate: LocalDateTime? = null
     if (selectedCardType == CardType.PREPAID) {
         print("\nEnter the expiration date (yyyy-MM-dd HH:mm:ss): ")
         val expirationDateInput = scanner.nextLine()
-        val expirationDate = try {
-            LocalDateTime.parse(expirationDateInput)
+        expirationDate = try {
+            val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")
+            LocalDateTime.parse(expirationDateInput, formatter)
+
         } catch (e: Exception) {
             println("Invalid date format. Using default expiration date.")
+            println(e)
             null
         }
     }
@@ -49,7 +55,7 @@ fun main() {
     println("\nGenerating $cardCount gift cards with $cardBalance balance each...")
 
     // Generate the cards
-    val generatedCards = cardService.generateCards(cardCount, cardBalance, selectedCardType)
+    val generatedCards = cardService.generateCards(cardCount, cardBalance, selectedCardType, expirationDate)
 
     if (generatedCards.isNotEmpty()) {
         println("Successfully generated ${generatedCards.size} cards!")

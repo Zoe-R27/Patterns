@@ -23,6 +23,9 @@ To run in IntelliJ:
 3. Fork this repository and download to where you want it
 4. In IntelliJ go to File -> New -> Project from Existing Sources -> Chose Forked Repository
 5. Either let the gradle load in or run `./gradlew build`
+   6. If the Gradle fails, you may be running a different version of Java
+   7. Go to File -> Project Structure -> Make sure your SDK and Language is set to Java 17
+   8. Go to File -> Settings -> Build, Execution Deployment -> Build Tools -> Gradle -> Make sure your Gradle JVM is Java 17
 
 ### Structure
  - Code in found in the `app/src/main/kotlin package`
@@ -45,7 +48,7 @@ This will cause prompts to appear to on the terminal asking for:
 
 To run the tests, you can right-click on the package(directory) and chose `Run Tests in...`
 
-## Description of Patterns
+## Description and Analysis of Patterns
 Why we have problem
 How we started
 Why we chose then instead of something else
