@@ -9,9 +9,9 @@ Within this project, we are generating giftcards and saving them to, in this cas
 by retrieving a saved sequence from another csv file that keeps track of the lastest card number generated.
 
 This project also showcases a few of the common design patterns including:
- - Singleton
  - Adapter
  - Prototype
+ - Singleton
 
 ## How To Set Up
 This project runs on Java 17 and Gradle 8.11. It is best run in IntelliJ since it is written in Kotlin, a common
@@ -23,9 +23,9 @@ To run in IntelliJ:
 3. Fork this repository and download to where you want it
 4. In IntelliJ go to File -> New -> Project from Existing Sources -> Chose Forked Repository
 5. Either let the gradle load in or run `./gradlew build`
-   6. If the Gradle fails, you may be running a different version of Java
-   7. Go to File -> Project Structure -> Make sure your SDK and Language is set to Java 17
-   8. Go to File -> Settings -> Build, Execution Deployment -> Build Tools -> Gradle -> Make sure your Gradle JVM is Java 17
+   1. If the Gradle fails, you may be running a different version of Java
+   2. Go to File -> Project Structure -> Make sure your SDK and Language is set to Java 17
+   3. Go to File -> Settings -> Build, Execution Deployment -> Build Tools -> Gradle -> Make sure your Gradle JVM is Java 17
 
 ### Structure
  - Code in found in the `app/src/main/kotlin package`
@@ -49,6 +49,10 @@ This will cause prompts to appear to on the terminal asking for:
 To run the tests, you can right-click on the package(directory) and chose `Run Tests in...`
 
 ## Description and Analysis of Patterns
+### Adapter
+### Prototype
+### Singleton
+
 Why we have problem
 How we started
 Why we chose then instead of something else
