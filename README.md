@@ -21,11 +21,12 @@ To run in IntelliJ:
 1. Ensure you have Java 17
 2. Download the community version from their [site](https://www.jetbrains.com/idea/).
 3. Fork this repository and download to where you want it
-4. In IntelliJ go to File -> New -> Project from Existing Sources -> Chose Forked Repository
+4. In IntelliJ go to File -> New -> Open -> Chose Forked Repository
 5. Either let the gradle load in or run `./gradlew build`
     1. If the Gradle fails, you may be running a different version of Java
     2. Go to File -> Project Structure -> Make sure your SDK and Language is set to Java 17
     3. Go to File -> Settings -> Build, Execution Deployment -> Build Tools -> Gradle -> Make sure your Gradle JVM is Java 17
+6. If that doesn't work, you can try to do File -> New -> Project from Existing Sources
 
 ### Structure
 - Code in found in the `app/src/main/kotlin package`
