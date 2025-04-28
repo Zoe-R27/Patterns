@@ -52,8 +52,8 @@ To run the tests, you can right-click on the package(directory) and chose `Run T
 ### Adapter
 The example of this can be found in the service package.
 
-In an actual service, we would connect to a database that would have a table to save all the cards generated for tracking usage, 
-allowing lookups, and deleting cards. We would have an additional table to save, retrieve, and update the sequence to track
+In an actual service, we would connect to a database that would have a table to save all the cards generated. We can use this table for tracking card usage, 
+card lookups, and deleting cards. We would have an additional table to save, retrieve, and update the sequence to track
 how many cards have been generated and where we are with generation numbers.
 
 However, for this demo, we are using a CSV file to save the cards generated and the sequence as it is easier to view and spin up
@@ -61,7 +61,7 @@ compared using a container such as Docker. In this way it is possible to just vi
 If you want to learn more about Docker you can [read more here](https://www.geeksforgeeks.org/containerization-using-docker/).
 
 The adapter pattern is used to allow the program to use the CSV file as if it were a database. The client - in 
-this case the `GiftCardCsvHandler` - is the client that is trying to call the database. The repositories are the original interface that 
+this case the `GiftCardCsvHandler` - is trying to call the database. The repositories are the original interface that 
 we want the client to still feel like they are using. The adapter classes are there to adapt the CSV file to the interface that the client is expecting.
 This way the client doesn't need to call all the methods related to file handling such as readFile, parseFile, writeToFile, etc. It just needs
 to call save, get, and update functions that would normally be found in a repository.
@@ -84,11 +84,11 @@ val card4 = GiftCard("1234567890123459",100.0, "Prepaid", "12/25"...)
 
 With the prototype pattern, I can create a base card and then loop and clone it with the changes I want, reducing the amount of redundant code.
 The only difference in a traditional prototype compared to the one used in this project is that it is using Kotlin's `.copy()` function which
-does a shallow copy instead of a deep copy. More can be found in the `TestUtil` file.
+does a shallow copy instead of a deep copy. More can be found in the comments in the `TestUtil` file.
 
 ### Singleton
 The singleton pattern can be found throughout the main package including an actual implementation in 
-`GenerateCardService.kt` and a built-in use of it in `AppConfig.kt`. 
+`GenerateCardService.kt` and a built-in use of it in `AppConfig.kt` using Kotlin object. 
 
 The singleton pattern is used to ensure that there is only one instance of a class throughout the application.
 This is useful for classes that are expensive to create or that need to be shared across the application, such as the configuration class.
