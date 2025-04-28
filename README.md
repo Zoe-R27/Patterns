@@ -57,14 +57,14 @@ allowing lookups, and deleting cards. We would have an additional table to save,
 how many cards have been generated and where we are with generation numbers.
 
 However, for this demo, we are using a CSV file to save the cards generated and the sequence as it is easier to view and spin up
-compared to say using a container such as docker. In this way it is possible to just view the CSV file and see the cards generated.
-If you want to learn more about docker you can [read more here](https://www.geeksforgeeks.org/containerization-using-docker/).
+compared using a container such as Docker. In this way it is possible to just view the CSV file and see the cards generated.
+If you want to learn more about Docker you can [read more here](https://www.geeksforgeeks.org/containerization-using-docker/).
 
 The adapter pattern is used to allow the program to use the CSV file as if it were a database. The client - in 
-this case the GiftCardCsvHandler - is the client that is trying to call the database. The repositories are the original interface that 
+this case the `GiftCardCsvHandler` - is the client that is trying to call the database. The repositories are the original interface that 
 we want the client to still feel like they are using. The adapter classes are there to adapt the CSV file to the interface that the client is expecting.
-This way the client doesn't need to call all the methods such as reading the file, parse the file, write to the file, etc. It just needs
-to call save, get, and update functions.
+This way the client doesn't need to call all the methods related to file handling such as readFile, parseFile, writeToFile, etc. It just needs
+to call save, get, and update functions that would normally be found in a repository.
 
 ### Prototype
 The example for this can be found in the `TestUtil` file in the test package.
@@ -82,8 +82,8 @@ val card4 = GiftCard("1234567890123459",100.0, "Prepaid", "12/25"...)
 ....
 ````
 
-With the prototype pattern, I can create a base card and then loop and clone it with the changes I want.
-The only difference in a traditional prototype and this is that I am using Kotlin's `.copy()` function which
+With the prototype pattern, I can create a base card and then loop and clone it with the changes I want, reducing the amount of redundant code.
+The only difference in a traditional prototype compared to the one used in this project is that it is using Kotlin's `.copy()` function which
 does a shallow copy instead of a deep copy. More can be found in the `TestUtil` file.
 
 ### Singleton
