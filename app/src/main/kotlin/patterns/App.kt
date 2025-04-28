@@ -15,6 +15,8 @@ fun main() {
     println("Current working directory: $currentDir")
 
     val scanner = Scanner(System.`in`)
+
+    // Calling to get the once instance of the Singleton
     val cardService = GenerateCardService.getInstance()
 
     println("Gift Card Generator")
