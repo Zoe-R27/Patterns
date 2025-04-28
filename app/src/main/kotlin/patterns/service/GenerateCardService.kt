@@ -167,10 +167,13 @@ class GenerateCardService private constructor() {
     }
 
     /**
-     * In this case I use the companion object to implement the Singleton pattern
-     * The Companion Object is a singleton object that is associated with the class
-     * It is used to hold static members and methods
-     * More can be found here:
+     * In this case I use the companion object and @Volatile annotation to implement the Singleton pattern.
+     * The Companion Object is a singleton object that is associated with the class.
+     * It is used to hold static members and methods.
+     * The @Volatile annotation ensure that only one thread can create an instance of the class.
+     * A breakdown of implementing the Singleton pattern this way in Kotlin can be found here: 
+     * https://www.baeldung.com/kotlin/singleton-classes
+     * More on Kotlin's companion object can be found here:
      * https://medium.com/@riztech.dev/understanding-companion-objects-in-kotlin-a93f1a5880a7
      * https://kotlinlang.org/docs/object-declarations.html#companion-objects
      */
