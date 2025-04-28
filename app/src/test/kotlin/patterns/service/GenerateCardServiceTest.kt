@@ -14,6 +14,15 @@ import patterns.constants.UPDATED_BY
 import patterns.util.TestUtil
 import java.time.LocalDateTime
 
+/**
+ * Starting tests for GenerateCardService
+ * In an actual service, we would want a more comprehensive testing suite which should include tests for edge cases,
+ * additional errors like invalid card types and other inputs, duplication handling, etc. We would also want to test the
+ * other service classes in seperate Test files to ensure that the CSV handling is correct and Sequence updates are good.
+ * For the sake of this project, I just added a few tests to showcase the Prototype Pattern. A description of the prototype
+ * pattern can be found in the TestUtil file under the util package.
+ */
+
 class GenerateCardServiceTest : StringSpec({
 
     val mockCardRepository = mockk<CsvCardRepositoryAdapter>()
@@ -103,7 +112,7 @@ class GenerateCardServiceTest : StringSpec({
 
     /**
      * Currently this program doesn't do anything other than log errors if we can't save the cards.
-     * In an actual service that is deployed for clients to use with the functionality to generate cards as an api or kafka service,
+     * In an actual service that is deployed for clients to use with the functionality to generate cards as an api call or kafka service,
      * we should have alerting and logging in place to notify us of this failure in the database.
      * The team will then have to decide how to handle these types of errors and have a plan in place to on what to do.
      */

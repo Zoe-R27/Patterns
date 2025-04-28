@@ -37,8 +37,10 @@ are set up.
 
 
 ### Running the Project
+Normally in a project, generating giftcards would be triggered via an API call or Kafka Listener and would go through a controller class. 
+In this case, I have included a `main()` function that can be used to prompt a user for card generation. This way it is easier to view and run.
 You can run the program by going to `app/src/main/kotlin/App.kt` and running `main()`.
-This can be done by either hitting the green arrow button next on the left or right-clicking on `main` and choosing `Run 'App.kt'`
+In IntelliJ, this can be done by either hitting the green arrow button next on the left or right-clicking on `main` and choosing `Run 'App.kt'`
 
 This will cause prompts to appear to on the terminal asking for:
 - The number of cards you want to generate

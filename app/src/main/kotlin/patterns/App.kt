@@ -16,15 +16,15 @@ fun main() {
 
     val scanner = Scanner(System.`in`)
 
-    // Calling to get the once instance of the Singleton
+    // Calling to get the one instance of the Singleton
     val cardService = GenerateCardService.getInstance()
 
     println("Gift Card Generator")
     println("-----------------")
 
     // Get number of cards to generate
-    print("How many gift cards do you want to generate? ")
-    val cardCount = readLongInput(scanner)
+    print("How many gift cards do you want to generate (max of 25)? ")
+    val cardCount = readLongInput(scanner, 25)
 
     // Get card balance
     print("Enter the balance for each card: ")
@@ -67,11 +67,12 @@ fun main() {
     }
 }
 
-private fun readLongInput(scanner: Scanner): Long {
+private fun readLongInput(scanner: Scanner, max: Int): Long {
     while (true) {
         try {
             return scanner.nextLine().toLong().also {
                 if (it <= 0) throw NumberFormatException("Must be positive")
+                if (it > max) throw NumberFormatException("Out of range")
             }
         } catch (e: NumberFormatException) {
             print("Please enter a valid positive number: ")

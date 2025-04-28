@@ -4,7 +4,8 @@ import org.yaml.snakeyaml.Yaml
 import java.io.InputStream
 
 /**
- * AppConfig is a singleton object that loads configuration from a YAML file.
+ * AppConfig is a singleton object that loads configuration from a YAML file. The singleton object ensure we have one
+ * copy of the configs in the entire application.
  * It provides access to application-specific settings.
  * More information can be found here: https://kotlinlang.org/docs/object-declarations.html
  */
