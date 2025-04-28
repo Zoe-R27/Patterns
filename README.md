@@ -5,7 +5,7 @@
 #### Spring 2025
 
 ## About
-Within this project, we are generating giftcards and saving them to, in this case a CSV file. The giftcards are generated
+Within this project, we are generating giftcards and saving them to, in this case, a CSV file. The giftcards are generated
 by retrieving a saved sequence from another csv file that keeps track of the lastest card number generated.
 
 This project also showcases a few of the common design patterns including:
@@ -33,27 +33,29 @@ To run in IntelliJ:
     - The bulk of the logic is found in `app/src/main/kotlin/patterns/service`
 - Tests are found in `app/src/test/kotlin package`
 
-There are various comment blocks around the project file that helps explain what the program does and how some of the patterns
+Various comment blocks around the project file helps explain what the program does and how some of the patterns
 are set up.
 
 
 ### Running the Project
-Normally in a project, generating giftcards would be triggered via an API call or Kafka Listener and would go through a controller class. 
-In this case, I have included a `main()` function that can be used to prompt a user for card generation. This way it is easier to view and run.
+Normally, in a project, generating giftcards would be triggered via an API call or Kafka Listener and would go through a controller class. 
+In this case, I have included a `main()` function that can prompt a user for card generation. This makes it easier to view and run.
 You can run the program by going to `app/src/main/kotlin/App.kt` and running `main()`.
-In IntelliJ, this can be done by either hitting the green arrow button next on the left or right-clicking on `main` and choosing `Run 'App.kt'`
+In IntelliJ, this can be done by either hitting the green arrow button next to the left or right-clicking on `main` and choosing `Run 'App.kt'`
 
 This will cause prompts to appear to on the terminal asking for:
 - The number of cards you want to generate
 - The amount of money you want the cards to be worth
 - The type of card you want generated
-    - If you chose to generate a Prepaid card, it will also ask for an expiration date
+    - If you choose to generate a Prepaid card, it will also ask for an expiration date
+ 
+The output CSV files can be found in the .data directory
 
-To run the tests, you can right-click on the package(directory) and chose `Run Tests in...`
+To run the tests, you can right-click on the package(directory) and choose `Run Tests in...`
 
 ## Description and Analysis of Patterns
 ### Adapter
-The example of this can be found in the service package.
+An example of this can be found in the service package.
 
 In an actual service, we would connect to a database that would have a table to save all the cards generated. We can use this table for tracking card usage, 
 card lookups, and deleting cards. We would have an additional table to save, retrieve, and update the sequence to track
@@ -66,17 +68,17 @@ If you want to learn more about Docker you can [read more here](https://www.geek
 The adapter pattern is used to allow the program to use the CSV file as if it were a database. The client - in 
 this case the `GiftCardCsvHandler` - is trying to call the database. The repositories are the original interface that 
 we want the client to still feel like they are using. The adapter classes are there to adapt the CSV file to the interface that the client is expecting.
-This way the client doesn't need to call all the methods related to file handling such as readFile, parseFile, writeToFile, etc. It just needs
+This way the client doesn't need to call all the methods related to file handling, such as readFile, parseFile, writeToFile, etc. It just needs
 to call save, get, and update functions that would normally be found in a repository.
 
 ### Prototype
 The example for this can be found in the `TestUtil` file in the test package.
 
-For testing, we often need to create a lot of objects that are similar but not exactly the same. This can be time consuming and
+For testing, we often need to create a lot of objects that are similar but not exactly the same. This can be time-consuming and
 require large amounts of very similar code to manually type out all the different cards. The prototype pattern allows us to create a base object
-and clone it with some small changes to certain fields. This way we can create a lot of cards quickly and easily.
+and clone it with some small changes to certain fields. This way, we can create a lot of cards quickly and easily.
 
-For example if I was to create all the cards for testing manually it would something like this:
+For example, if I were to create all the cards for testing manually, it would be something like this:
 ```` 
 val card1 = GiftCard("1234567890123456",100.0, "Prepaid", "12/25"...)
 val card2 = GiftCard("1234567890123457",100.0, "Prepaid", "12/25"...)
@@ -86,11 +88,11 @@ val card4 = GiftCard("1234567890123459",100.0, "Prepaid", "12/25"...)
 ````
 
 With the prototype pattern, I can create a base card and then loop and clone it with the changes I want, reducing the amount of redundant code.
-The only difference in a traditional prototype compared to the one used in this project is that it is using Kotlin's `.copy()` function which
+The only difference in a traditional prototype compared to the one used in this project is that it uses Kotlin's `.copy()` function, which
 does a shallow copy instead of a deep copy. More can be found in the comments in the `TestUtil` file.
 
 ### Singleton
-The singleton pattern can be found throughout the main package including an actual implementation in 
+The singleton pattern can be found throughout the main package, including an actual implementation in 
 `GenerateCardService.kt` and a built-in use of it in `AppConfig.kt` using Kotlin object. 
 
 The singleton pattern is used to ensure that there is only one instance of a class throughout the application.
