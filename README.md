@@ -14,7 +14,7 @@ This project also showcases a few of the common design patterns including:
 - Singleton
 
 ## How To Set Up
-This project runs on Java 17 and Gradle 8.11. It is best run in IntelliJ since it is written in Kotlin, a common
+This project runs on Java 17 and Gradle 8.10. It is best run in IntelliJ since it is written in Kotlin, a common
 language in Enterprise systems at this time.
 
 To run in IntelliJ:
