@@ -6,7 +6,7 @@
 
 ## About
 Within this project, we are generating giftcards and saving them to, in this case, a CSV file. The giftcards are generated
-by retrieving a saved sequence from another csv file that keeps track of the lastest card number generated.
+by retrieving a saved sequence from another csv file that keeps track of the last card number generated.
 
 This project also showcases a few of the common design patterns including:
 - Adapter
@@ -18,20 +18,21 @@ This project runs on Java 17 and Gradle 8.10. It is best run in IntelliJ since i
 language in Enterprise systems at this time.
 
 To run in IntelliJ:
-1. Ensure you have Java 17
+1. Ensure you have Java 17.
 2. Download the community version from their [site](https://www.jetbrains.com/idea/).
-3. Fork this repository and download to where you want it
-4. In IntelliJ go to File -> New -> Open -> Chose Forked Repository
-5. Either let the gradle load in or run `./gradlew build`
-    1. If the Gradle fails, you may be running a different version of Java
-    2. Go to File -> Project Structure -> Make sure your SDK and Language is set to Java 17
-    3. Go to File -> Settings -> Build, Execution Deployment -> Build Tools -> Gradle -> Make sure your Gradle JVM is Java 17
-6. If that doesn't work, you can try to do File -> New -> Project from Existing Sources
+3. Fork this repository and download to where you want it.
+4. In IntelliJ go to File -> New -> Open -> Chose Forked Repository.
+5. Either let the gradle load in or run `./gradlew build`.
+6. If you don't have Java 17 installed, IntelliJ will prompt you to install Microsoft's OpenJDK 17.
+    1. If the Gradle fails, you may be running a different version of Java.
+    2. Go to File -> Project Structure -> Make sure your SDK and Language is set to Java 17.
+    3. Go to File -> Settings -> Build, Execution Deployment -> Build Tools -> Gradle -> Make sure your Gradle JVM is Java 17.
+7. If that doesn't work, you can try to do File -> New -> Project from Existing Sources.
 
 ### Structure
-- Code in found in the `app/src/main/kotlin package`
-    - The bulk of the logic is found in `app/src/main/kotlin/patterns/service`
-- Tests are found in `app/src/test/kotlin package`
+- Code can be found in the `app/src/main/kotlin package`.
+    - The bulk of the logic is found in `app/src/main/kotlin/patterns/service`.
+- Tests are found in `app/src/test/kotlin package`.
 
 Various comment blocks around the project file helps explain what the program does and how some of the patterns
 are set up.
@@ -41,17 +42,17 @@ are set up.
 Normally, in a project, generating giftcards would be triggered via an API call or Kafka Listener and would go through a controller class. 
 In this case, I have included a `main()` function that can prompt a user for card generation. This makes it easier to view and run.
 You can run the program by going to `app/src/main/kotlin/App.kt` and running `main()`.
-In IntelliJ, this can be done by either hitting the green arrow button next to the function name on the left or right-clicking on `main` and choosing `Run 'App.kt'`
+In IntelliJ, this can be done by either hitting the green arrow button next to the function name on the left or right-clicking on `main` and choosing `Run 'App.kt'`.
 
 This will cause prompts to appear to on the terminal asking for:
-- The number of cards you want to generate
-- The amount of money you want the cards to be worth
-- The type of card you want generated
-    - If you choose to generate a Prepaid card, it will also ask for an expiration date
+- The number of cards you want to generate.
+- The amount of money you want the cards to be worth.
+- The type of card you want generated.
+    - If you choose to generate a Prepaid card, it will also ask for an expiration date.
  
-The output CSV files can be found in the .data directory
+The output CSV files can be found in the .data directory.
 
-To run the tests, you can right-click on the package(directory) and choose `Run Tests in...`
+To run the tests, you can right-click on the package(directory) and choose `Run Tests in...`.
 
 ## Description and Analysis of Patterns
 ### Adapter
