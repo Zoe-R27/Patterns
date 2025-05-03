@@ -20,7 +20,7 @@ Using the Singleton pattern helps us:
 
 ## Implementation in the Project
 
-Kotlin offers multiple ways to implement the Singleton pattern, and this project demonstrates several approaches.
+Kotlin offers multiple ways to implement the Singleton pattern, and this project demonstrates a couple approaches.
 
 ### 1. Using Kotlin Objects - AppConfig
 
