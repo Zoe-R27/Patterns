@@ -159,7 +159,7 @@ This would cause:
 ## Benefits of The Singleton Implementation
 
 1. **Thread Safety**: the implementations handle concurrent access properly
-2. **Lazy Initialization**: Restheces are only created when needed
+2. **Lazy Initialization**: Classes are only created when needed
 3. **Global Access**: Important components are easily accessible throughout the application
 4. **Controlled Creation**: We prevent accidental creation of multiple instances of critical services
 
