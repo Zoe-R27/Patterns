@@ -54,7 +54,10 @@ The output CSV files can be found in the .data directory.
 
 To run the tests, you can right-click on the package(directory) and choose `Run Tests in...`.
 
-## Description and Analysis of Patterns
+## Brief Description and Analysis of Patterns
+
+More detailed descriptions of the patterns can be found in the `PatternExplaination` directory.
+
 ### Adapter
 An example of this can be found in the service package.
 
@@ -62,14 +65,13 @@ In an actual service, we would connect to a database that would have a table to 
 card lookups, and deleting cards. We would have an additional table to save, retrieve, and update the sequence to track
 how many cards have been generated and where we are with generation numbers.
 
-However, for this demo, we are using a CSV file to save the cards generated and the sequence as it is easier to view and spin up
-compared using a container such as Docker. In this way it is possible to just view the CSV file and see the cards generated.
-If you want to learn more about Docker you can [read more here](https://www.geeksforgeeks.org/containerization-using-docker/).
-
 The adapter pattern is used to allow the program to use the CSV file as if it were a database. The client - in 
 this case the `GenerateCardService` - is trying to call the database. The repositories are the original interface that 
 we want the client to still feel like they are using. The adapter classes are there to adapt the CSV file to the interface that the client is expecting.
-This way the client doesn't need to call all the methods related to file handling, such as readFile, parseFile, writeToFile, etc located in the CSV handlers. It just needs to call save, get, and update functions that would normally be found in a repository.
+This way the client doesn't need to call all the methods related to file handling, such as readFile, parseFile, writeToFile, etc. 
+located in the CSV handlers. It just needs to call save, get, and update functions that would normally be found in a repository.
+
+A more detailed explanation of this can be found in the `PatternExplaination/Adapter.md` file.
 
 ### Prototype
 The example for this can be found in the `TestUtil` file in the test package.
@@ -99,6 +101,8 @@ The singleton pattern is used to ensure that there is only one instance of a cla
 This is useful for classes that are expensive to create or that need to be shared across the application, such as the configuration class.
 In this case, the `GenerateCardService` is a singleton because having multiple instances
 of it could cause issues, such as duplication and data inconsistencies, with the sequence handling and the card generation.
+
+A more detailed explanation of this can be found in the `PatternExplaination/Singleton.md` file.
 
 ## More on Gradle
 
