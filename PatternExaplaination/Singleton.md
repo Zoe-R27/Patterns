@@ -165,6 +165,6 @@ This would cause:
 
 ## Conclusion
 
-The Singleton pattern is crucial in the gift card generation system, particularly for managing configuration settings and controlling card sequence generation. 
+The Singleton pattern is important in the gift card generation system, particularly for managing configuration settings and controlling card sequence generation. 
 Kotlin's language features make implementing singletons straightforward and fairly simple compared to other languages. 
 By ensuring single instances of key components, we maintain data consistency and prevent issues like duplicate card numbers that would otherwise compromise the application's reliability.
