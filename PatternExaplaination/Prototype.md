@@ -55,7 +55,7 @@ A similar method exists for creating `PrepaidCard` objects.
 ### Key Differences
 
 - **Shallow Copy**: Copies the object's primitive values and references. If the original contains references to other objects, the copy will reference the same objects.
-- **Deep Copy**: Creates new instances of all referenced objects recursively.
+- **Deep Copy**: Creates new instances of all referenced objects.
 
 ### Impact on Prototype Pattern
 
@@ -63,7 +63,7 @@ Kotlin's `.copy()` method creates a shallow copy. This is sufficient when:
 - Objects contain only primitives and immutable objects
 - No referenced objects need independent modification
 
-However, if a `GiftCard` contained mutable objects (like a list of transactions), modifying these in one card would affect all cards sharing that reference.
+However, if a `GiftCard` contained mutable objects (like a list of activities), modifying these in one card would affect all cards sharing that reference.
 
 In a traditional prototype pattern, deep copying is often needed to ensure complete independence of the cloned objects.
 However, for this testing scenario, shallow copying is sufficient because:
@@ -97,7 +97,7 @@ fun createGiftCardsWithoutPrototype(amount: Long, cardBalance: Double, createdBy
     return cards
 }
 ```
-Or if I wanted even more control and visibility over the card properties, I would have to create a new object for each card:
+Or if I wanted even more control and visibility over the card properties, I would have to manually type out a new object for each card:
 
 ```kotlin
 val card1 = PrepaidCard("1234567890123456",200.0, "Prepaid", "12/25"...)
@@ -117,7 +117,7 @@ While this implementation is convenient, it's not strictly necessary. The true p
 2. **Hidden Implementation**: When copying objects is needed without knowing their concrete classes
 3. **Deep Object Hierarchies**: When dealing with complex nested object structures that need independent copies
 
-### Real-World Example:
+### Example:
 
 Consider a scenario with a complex card hierarchy with extensive validation rules, attached accounts, transaction history, and security features:
 
