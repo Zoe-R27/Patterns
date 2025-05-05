@@ -79,7 +79,7 @@ instead of directly writing to a database.
 
 ### Using the Adapters in the Service Layer
 
-In `GenerateCardService` (lines 24-30), we create and use these adapters:
+In `GenerateCardService` ([lines 24-30](https://github.com/Zoe-R27/Patterns/blob/bb1c198c1a131f48a615b10aba4b26f3b5ad1b06/app/src/main/kotlin/patterns/service/GenerateCardService.kt#L24)), we create and use these adapters:
 
 ```kotlin
 // Creating the adapter used in the adapter pattern
@@ -90,14 +90,14 @@ private val sequenceCsvHandler = SequenceCsvHandler()
 private val sequenceRepository = CsvSequenceRepositoryAdapter(sequenceRepository)
 ```
 
-The service then interacts with these repositories using standard methods like `cardRepository.saveAll()` (line 153) 
-and `sequenceRepository.getSequence()` (line 118).
+The service then interacts with these repositories using standard methods like `cardRepository.saveAll()` ([line 143](https://github.com/Zoe-R27/Patterns/blob/bb1c198c1a131f48a615b10aba4b26f3b5ad1b06/app/src/main/kotlin/patterns/service/GenerateCardService.kt#L142)) 
+and `sequenceRepository.getSequence()` ([line 118](https://github.com/Zoe-R27/Patterns/blob/bb1c198c1a131f48a615b10aba4b26f3b5ad1b06/app/src/main/kotlin/patterns/service/GenerateCardService.kt#L121)).
 
 ## Without the Adapter Pattern
 
 Without this pattern, the `GenerateCardService.kt` would have direct knowledge of CSV file handling
 
-For example, instead of the clean code in `GenerateGiftCardSerice.saveCards()` (lines 139-147) that simply calls the repository using `.saveAll()`,
+For example, instead of the clean code in `GenerateGiftCardSerice.saveCards()` ([lines 139-147](https://github.com/Zoe-R27/Patterns/blob/bb1c198c1a131f48a615b10aba4b26f3b5ad1b06/app/src/main/kotlin/patterns/service/GenerateCardService.kt#L139)) that simply calls the repository using `.saveAll()`,
 the client would have direct knowledge of what CSV file operations were being performed.
 
 ```kotlin
