@@ -82,7 +82,7 @@ private val csvReader = object {
 }
 ```
 
-In `GiftCardCsvHandler.kt` (lines 46-68), these objects organize related functionality within the class. 
+In `GiftCardCsvHandler.kt` (Ex: csvReader() on [lines 46-68](https://github.com/Zoe-R27/Patterns/blob/36d4c3e0c9889f76d8e5612d433edb56b9ee86e7/app/src/main/kotlin/patterns/service/GiftCardCsvHandler.kt#L46)), these objects organize related functionality within the class. 
 While there's only one instance of each anonymous object per handler instance, they aren't globally accessible like true singletons.
 
 ## Kotlin Object Types Explained
