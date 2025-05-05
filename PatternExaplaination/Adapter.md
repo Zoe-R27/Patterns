@@ -97,7 +97,7 @@ and `sequenceRepository.getSequence()` (line 118).
 
 Without this pattern, the `GenerateCardService.kt` would have direct knowledge of CSV file handling
 
-For example, instead of the clean code in `GenerateGiftCardSerice.saveCards()` (lines 139-147) that simply calls the repository using `.saveAll(),
+For example, instead of the clean code in `GenerateGiftCardSerice.saveCards()` (lines 139-147) that simply calls the repository using `.saveAll()`,
 the client would have direct knowledge of what CSV file operations were being performed.
 
 ```kotlin
