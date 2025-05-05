@@ -10,8 +10,8 @@ by retrieving a saved sequence from another csv file that keeps track of the las
 
 This project also showcases a few of the common design patterns including:
 - Adapter
-- Prototype
 - Singleton
+- Prototype
 
 ## How To Set Up
 This project runs on Java 17 and Gradle 8.10. It is best run in IntelliJ since it is written in Kotlin, a common
@@ -73,29 +73,9 @@ located in the CSV handlers. It just needs to call save, get, and update functio
 
 A more detailed explanation of this can be found in the `PatternExplaination/Adapter.md` file.
 
-### Prototype
-The example for this can be found in the `TestUtil` file in the test package.
-
-For testing, we often need to create a lot of objects that are similar but not exactly the same. This can be time-consuming and
-require large amounts of very similar code to manually type out all the different cards. The prototype pattern allows us to create a base object
-and clone it with some small changes to certain fields. This way, we can create a lot of cards quickly and easily.
-
-For example, if I were to create all the cards for testing manually, it would be something like this:
-```` 
-val card1 = GiftCard("1234567890123456",100.0, "Prepaid", "12/25"...)
-val card2 = GiftCard("1234567890123457",100.0, "Prepaid", "12/25"...)
-val card3 = GiftCard("1234567890123458",100.0, "Prepaid", "12/25"...)
-val card4 = GiftCard("1234567890123459",100.0, "Prepaid", "12/25"...)
-....
-````
-
-With the prototype pattern, I can create a base card and then loop and clone it with the changes I want, reducing the amount of redundant code.
-The only difference in a traditional prototype compared to the one used in this project is that it uses Kotlin's `.copy()` function, which
-does a shallow copy instead of a deep copy. More can be found in the comments in the `TestUtil` file.
-
 ### Singleton
-The singleton pattern can be found throughout the main package, including an actual implementation in 
-`GenerateCardService.kt` and a built-in use of it in `AppConfig.kt` using Kotlin object. 
+The singleton pattern can be found throughout the main package, including an actual implementation in
+`GenerateCardService.kt` and a built-in use of it in `AppConfig.kt` using Kotlin object.
 
 The singleton pattern is used to ensure that there is only one instance of a class throughout the application.
 This is useful for classes that are expensive to create or that need to be shared across the application, such as the configuration class.
@@ -103,6 +83,19 @@ In this case, the `GenerateCardService` is a singleton because having multiple i
 of it could cause issues, such as duplication and data inconsistencies, with the sequence handling and the card generation.
 
 A more detailed explanation of this can be found in the `PatternExplaination/Singleton.md` file.
+
+### Prototype
+The example for this can be found in the `TestUtil` file in the test package.
+
+For testing, we often need to create a lot of objects that are similar but not exactly the same. This can be time-consuming and
+require large amounts of very similar code to manually type out all the different cards. The prototype pattern allows us to create a base object
+and clone it with some small changes to certain fields. This way, we can create a lot of cards quickly and easily.
+
+With the prototype pattern, I can create a base card and then loop and clone it with the changes I want, reducing the amount of redundant code.
+The only difference in a traditional prototype compared to the one used in this project is that it uses Kotlin's `.copy()` function, which
+does a shallow copy instead of a deep copy.
+
+A more detailed explanation of this can be found in the `PatternExplaination/Prototype.md` file and in the comments of the `TestUtil.kt`.
 
 ## More on Gradle
 
