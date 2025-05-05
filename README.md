@@ -33,8 +33,9 @@ To run in IntelliJ:
 - Code can be found in the `app/src/main/kotlin package`.
     - The bulk of the logic is found in `app/src/main/kotlin/patterns/service`.
 - Tests are found in `app/src/test/kotlin package`.
+- Detailed explanations of the patterns can be found in `PatternExplanation`.
 
-Various comment blocks around the project file helps explain what the program does and how some of the patterns
+Various comment blocks around the project file also helps explain what the program does and how some of the patterns
 are set up.
 
 
@@ -56,7 +57,7 @@ To run the tests, you can right-click on the package(directory) and choose `Run 
 
 ## Brief Description and Analysis of Patterns
 
-More detailed descriptions of the patterns can be found in the `PatternExplaination` directory.
+More detailed descriptions of the patterns can be found in the `PatternExplanation` directory.
 
 ### Adapter
 An example of this can be found in the service package.
@@ -71,7 +72,7 @@ we want the client to still feel like they are using. The adapter classes are th
 This way the client doesn't need to call all the methods related to file handling, such as readFile, parseFile, writeToFile, etc. 
 located in the CSV handlers. It just needs to call save, get, and update functions that would normally be found in a repository.
 
-A more detailed explanation of this can be found in the `PatternExplaination/Adapter.md` file.
+A more detailed explanation of this can be found in the `PatternExplanation/Adapter.md` file.
 
 ### Singleton
 The singleton pattern can be found throughout the main package, including an actual implementation in
@@ -82,7 +83,7 @@ This is useful for classes that are expensive to create or that need to be share
 In this case, the `GenerateCardService` is a singleton because having multiple instances
 of it could cause issues, such as duplication and data inconsistencies, with the sequence handling and the card generation.
 
-A more detailed explanation of this can be found in the `PatternExplaination/Singleton.md` file.
+A more detailed explanation of this can be found in the `PatternExplanation/Singleton.md` file.
 
 ### Prototype
 The example for this can be found in the `TestUtil` file in the test package.
@@ -95,7 +96,7 @@ With the prototype pattern, I can create a base card and then loop and clone it 
 The only difference in a traditional prototype compared to the one used in this project is that it uses Kotlin's `.copy()` function, which
 does a shallow copy instead of a deep copy.
 
-A more detailed explanation of this can be found in the `PatternExplaination/Prototype.md` file and in the comments of the `TestUtil.kt`.
+A more detailed explanation of this can be found in the `PatternExplanation/Prototype.md` file and in the comments of the `TestUtil.kt`.
 
 ## More on Gradle
 
